@@ -5,6 +5,7 @@ import 'package:flutter_any_logo/gen/assets.gen.dart';
 class Socialbutton extends StatelessWidget {
   final String socialSite;
   final VoidCallback onPressed;
+  final String imageSrc;
   final double width;
   final double height;
   final Color backgroundColor;
@@ -14,6 +15,7 @@ class Socialbutton extends StatelessWidget {
     Key? key,
     required this.socialSite,
     required this.onPressed,
+    required this.imageSrc,
     this.width = 200,
     this.height = 35,
     this.backgroundColor = Colors.black,
@@ -29,9 +31,10 @@ class Socialbutton extends StatelessWidget {
         onPressed: () {},
         child: Row(
           children: [
-            Icon(
-              Icons.settings,
-              size: 20,
+            Image.asset(
+              imageSrc,
+              width: 25,
+              height: 25,
             ),
             SizedBox(
               width: 8,
@@ -43,7 +46,7 @@ class Socialbutton extends StatelessWidget {
           ],
         ),
         style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
+            backgroundColor: Colors.white.withOpacity(0.6),
             foregroundColor: textColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(5)))),

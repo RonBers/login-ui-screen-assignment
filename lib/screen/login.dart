@@ -27,7 +27,7 @@ class Login extends StatelessWidget {
                     height: 700,
                   ),
                   Container(
-                      color: Colors.green,
+                      color: Colors.black,
                       width: 518,
                       height: 700,
                       child: LoginForm()),
@@ -44,6 +44,8 @@ class Login extends StatelessWidget {
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
 
+  final Color fontColor = Colors.white;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,6 +61,7 @@ class LoginForm extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Mortend',
                     fontSize: 40,
+                    color: fontColor,
                   ),
                 )
               ],
@@ -73,9 +76,11 @@ class LoginForm extends StatelessWidget {
               Text(
                 "Login",
                 style: TextStyle(
-                    fontFamily: 'TurismoCF',
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
+                  fontFamily: 'TurismoCF',
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: fontColor,
+                ),
               )
             ],
           ),
@@ -86,6 +91,7 @@ class LoginForm extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Socialbutton(
+                imageSrc: 'assets/logos/google.png',
                 socialSite: "Google",
                 onPressed: () {},
               ),
@@ -93,6 +99,7 @@ class LoginForm extends StatelessWidget {
                 width: 15,
               ),
               Socialbutton(
+                imageSrc: 'assets/logos/facebook.png',
                 socialSite: "Facebook",
                 onPressed: () {},
               ),
@@ -105,7 +112,7 @@ class LoginForm extends StatelessWidget {
             children: [
               Expanded(
                 child: Divider(
-                  color: Colors.black, // Line color
+                  color: fontColor, // Line color
                   thickness: 2, // Line thickness
                   indent: 55, // Left padding
                   endIndent: 30, // Padding before the "OR" text
@@ -114,13 +121,13 @@ class LoginForm extends StatelessWidget {
               Text(
                 "OR",
                 style: TextStyle(
-                    color: Colors.black, // Text color
+                    color: fontColor, // Text color
                     fontWeight: FontWeight.bold,
                     fontFamily: 'TurismoCF'),
               ),
               Expanded(
                 child: Divider(
-                  color: Colors.black, // Line color
+                  color: fontColor, // Line color
                   thickness: 2, // Line thickness
                   indent: 30, // Padding after the "OR" text
                   endIndent: 55, // Right padding
@@ -133,14 +140,24 @@ class LoginForm extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Textbox(label: "Email")],
+            children: [
+              Textbox(
+                label: "Email:",
+                placeholder: 'mail@example.com',
+              )
+            ],
           ),
           SizedBox(
-            height: 40,
+            height: 25,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Textbox(label: "Password")],
+            children: [
+              Textbox(
+                label: "Password:",
+                placeholder: 'Min of 6 Characters',
+              )
+            ],
           ),
           SizedBox(
             height: 40,
@@ -149,7 +166,12 @@ class LoginForm extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CustomCheckbox(),
-              TextButton(onPressed: () {}, child: Text("Forgot Password?")),
+              TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Forgot Password?",
+                    style: TextStyle(color: fontColor),
+                  )),
             ],
           ),
           SizedBox(

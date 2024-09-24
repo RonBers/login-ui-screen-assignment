@@ -17,7 +17,7 @@ class Socialbutton extends StatelessWidget {
     required this.onPressed,
     required this.imageSrc,
     this.width = 200,
-    this.height = 35,
+    this.height = 37,
     this.backgroundColor = Colors.black,
     this.textColor = Colors.white,
   });
@@ -28,16 +28,16 @@ class Socialbutton extends StatelessWidget {
       width: width,
       height: height,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Row(
           children: [
             Image.asset(
               imageSrc,
-              width: 25,
-              height: 25,
+              width: 30,
+              height: 30,
             ),
             SizedBox(
-              width: 8,
+              width: 3,
             ),
             Text(
               "Sign in with " + socialSite,
@@ -46,10 +46,15 @@ class Socialbutton extends StatelessWidget {
           ],
         ),
         style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white.withOpacity(0.6),
-            foregroundColor: textColor,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(5)))),
+          backgroundColor: Colors.white.withOpacity(0.4),
+          foregroundColor: textColor,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(5))),
+          side: BorderSide(
+            color: Colors.grey,
+            width: 1.5,
+          ),
+        ),
       ),
     );
   }

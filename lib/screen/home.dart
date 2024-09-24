@@ -7,7 +7,19 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: const Text("Home"),
+      ),
+      body: Center(
+        child: ClipRRect(
+          borderRadius:
+              BorderRadius.circular(100.0), // Rounds the corners of the image
+          child: Image.asset(
+            'assets/logos/app_logo.png',
+            width: 500,
+            height: 500,
+            fit: BoxFit.cover, // Ensures the image covers the available space
+          ),
+        ),
       ),
     );
   }

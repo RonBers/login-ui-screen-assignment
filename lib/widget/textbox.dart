@@ -10,7 +10,7 @@ class Textbox extends StatelessWidget {
     Key? key,
     required this.label,
     this.placeholder = "",
-    this.width = 400,
+    this.width = 410,
     this.backgroundColor = Colors.transparent,
   }) : super(key: key);
 
@@ -24,22 +24,22 @@ class Textbox extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontSize: 12),
           ),
           TextField(
             cursorColor: Colors.white,
             decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.white.withOpacity(0.6),
+                fillColor: Colors.white.withOpacity(0.4),
                 border: OutlineInputBorder(),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.0),
+                  borderSide: BorderSide(color: Colors.grey, width: 1.5),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 1.0),
+                  borderSide: BorderSide(color: Colors.grey, width: 1.0),
                 ),
                 hintText: placeholder,
-                hintStyle: TextStyle(color: Colors.white)),
+                hintStyle: TextStyle(color: Colors.white, fontSize: 12)),
           ),
         ],
       ),

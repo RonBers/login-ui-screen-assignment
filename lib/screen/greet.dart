@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:login_screen/widget/customcheckbox.dart';
-import 'package:login_screen/widget/socialbutton.dart';
 import 'package:login_screen/widget/submitbutton.dart';
-import 'package:login_screen/widget/textbox.dart';
-// import 'package:login_screen/widget/buttonnav.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Greet extends StatelessWidget {
+  const Greet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +21,7 @@ class Login extends StatelessWidget {
                     color: Colors.black,
                     child: Center(
                       child: Image.asset(
-                        "assets/img/anim_statue.gif",
+                        "assets/img/still_statue.png",
                         height: 450,
                         width: 450,
                       ),
@@ -77,13 +73,13 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 30,
+            height: 150,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Login",
+                "Welcome",
                 style: TextStyle(
                   fontFamily: 'TurismoCF',
                   fontSize: 30,
@@ -99,21 +95,15 @@ class LoginForm extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Socialbutton(
-                imageSrc: 'assets/logos/google.png',
-                socialSite: "Google",
-                onPressed: () {
-                  Navigator.pushNamed(context, '/home');
-                },
-              ),
-              SizedBox(
-                width: 15,
-              ),
-              Socialbutton(
-                imageSrc: 'assets/logos/facebook.png',
-                socialSite: "Facebook",
-                onPressed: () {},
-              ),
+              Submitbutton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  child: Text(
+                    "Login",
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
+                  custom: true)
             ],
           ),
           SizedBox(
@@ -147,66 +137,22 @@ class LoginForm extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 40,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Textbox(
-                label: "Email:",
-                placeholder: 'mail@example.com',
-              )
-            ],
-          ),
-          SizedBox(
             height: 25,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Textbox(
-                label: "Password:",
-                placeholder: 'Min of 6 Characters',
-              )
-            ],
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CustomCheckbox(),
-              TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Forgot Password?",
-                    style: TextStyle(color: fontColor),
-                  )),
-            ],
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
               Submitbutton(
-                custom: true,
-                child: Text(
-                  "Login",
-                  style: TextStyle(
-                      fontFamily: 'RealText',
-                      fontWeight: FontWeight.w100,
-                      fontSize: 23,
-                      color: Colors.white),
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/home');
-                },
-              )
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
+                  child: Text(
+                    "Register",
+                    style: TextStyle(fontSize: 25, color: Colors.black),
+                  ),
+                  custom: false)
             ],
-          )
+          ),
         ],
       ),
     );

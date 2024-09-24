@@ -4,14 +4,20 @@ class Textbox extends StatelessWidget {
   final String label;
   final String placeholder;
   final double width;
+  final double height;
   final Color backgroundColor;
+  final double fontSize_placeHolder;
+  final double fontSize_label;
 
   const Textbox({
     Key? key,
     required this.label,
     this.placeholder = "",
     this.width = 410,
+    this.height = 65,
     this.backgroundColor = Colors.transparent,
+    this.fontSize_placeHolder = 12,
+    this.fontSize_label = 12,
   }) : super(key: key);
 
   @override
@@ -24,11 +30,13 @@ class Textbox extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(color: Colors.white, fontSize: 12),
+            style: TextStyle(color: Colors.white, fontSize: fontSize_label),
           ),
-          TextField(
-            cursorColor: Colors.white,
-            decoration: InputDecoration(
+          Container(
+            height: height,
+            child: TextField(
+              cursorColor: Colors.white,
+              decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white.withOpacity(0.4),
                 border: OutlineInputBorder(),
@@ -39,8 +47,11 @@ class Textbox extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.grey, width: 1.0),
                 ),
                 hintText: placeholder,
-                hintStyle: TextStyle(color: Colors.white, fontSize: 12)),
-          ),
+                hintStyle: TextStyle(
+                    color: Colors.white, fontSize: fontSize_placeHolder),
+              ),
+            ),
+          )
         ],
       ),
     );

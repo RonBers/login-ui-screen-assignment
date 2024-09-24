@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_any_logo/flutter_logo.dart';
-import 'package:flutter_any_logo/gen/assets.gen.dart';
 
 class Socialbutton extends StatelessWidget {
   final String socialSite;
@@ -10,17 +8,22 @@ class Socialbutton extends StatelessWidget {
   final double height;
   final Color backgroundColor;
   final Color textColor;
+  final double fontSize;
+  final double imageWidth;
+  final double imageHeight;
 
-  const Socialbutton({
-    Key? key,
-    required this.socialSite,
-    required this.onPressed,
-    required this.imageSrc,
-    this.width = 200,
-    this.height = 37,
-    this.backgroundColor = Colors.black,
-    this.textColor = Colors.white,
-  });
+  const Socialbutton(
+      {Key? key,
+      required this.socialSite,
+      required this.onPressed,
+      required this.imageSrc,
+      this.width = 200,
+      this.height = 37,
+      this.backgroundColor = Colors.black,
+      this.textColor = Colors.white,
+      this.fontSize = 12,
+      this.imageWidth = 30,
+      this.imageHeight = 30});
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +36,15 @@ class Socialbutton extends StatelessWidget {
           children: [
             Image.asset(
               imageSrc,
-              width: 30,
-              height: 30,
+              width: imageWidth,
+              height: imageHeight,
             ),
             SizedBox(
               width: 3,
             ),
             Text(
               "Sign in with " + socialSite,
-              style: TextStyle(fontSize: 12),
+              style: TextStyle(fontSize: fontSize),
             ),
           ],
         ),

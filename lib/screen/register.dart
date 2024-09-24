@@ -1,56 +1,67 @@
 import 'package:flutter/material.dart';
-import 'package:login_screen/widget/customcheckbox.dart';
-import 'package:login_screen/widget/socialbutton.dart';
-import 'package:login_screen/widget/submitbutton.dart';
-import 'package:login_screen/widget/textbox.dart';
-// import 'package:login_screen/widget/buttonnav.dart';
+import 'package:cs3midlogin/widget/socialbutton.dart';
+import 'package:cs3midlogin/widget/submitbutton.dart';
+import 'package:cs3midlogin/widget/textbox.dart'; // import 'package:login_screen/widget/buttonnav.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          width: 1168,
-          height: 700,
-          color: Colors.black,
-          child: Column(
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    color: Colors.black,
-                    child: Center(
-                      child: Image.asset(
-                        "assets/img/anim_statue.gif",
-                        height: 450,
-                        width: 450,
-                      ),
+    return Scaffold(body: LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth < 600) {
+        return RegisterMobile();
+      } else {
+        return RegisterWeb();
+      }
+    }));
+  }
+}
+
+class RegisterWeb extends StatelessWidget {
+  const RegisterWeb({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 1168,
+        height: 700,
+        color: Colors.black,
+        child: Column(
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  color: Colors.black,
+                  child: Center(
+                    child: Image.asset(
+                      "assets/img/anim_statue.gif",
+                      height: 450,
+                      width: 450,
                     ),
-                    width: 650,
-                    height: 700,
                   ),
-                  Container(
-                      color: const Color.fromARGB(255, 32, 32, 32)
-                          .withOpacity(0.5),
-                      width: 518,
-                      height: 700,
-                      child: LoginForm()),
-                ],
-              )
-            ],
-          ),
+                  width: 650,
+                  height: 700,
+                ),
+                Container(
+                    color:
+                        const Color.fromARGB(255, 32, 32, 32).withOpacity(0.5),
+                    width: 518,
+                    height: 700,
+                    child: RegisterWebForm()),
+              ],
+            )
+          ],
         ),
       ),
     );
   }
 }
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+class RegisterWebForm extends StatelessWidget {
+  const RegisterWebForm({super.key});
 
   final Color fontColor = Colors.white;
 
@@ -151,6 +162,7 @@ class LoginForm extends StatelessWidget {
                 placeholder: 'Ron',
                 label: 'First Name',
                 width: 200,
+                height: 45,
               ),
               SizedBox(
                 width: 10,
@@ -159,6 +171,7 @@ class LoginForm extends StatelessWidget {
                 placeholder: 'Bersabal',
                 label: 'Last Name',
                 width: 200,
+                height: 45,
               )
             ],
           ),
@@ -171,6 +184,7 @@ class LoginForm extends StatelessWidget {
               Textbox(
                 label: "Email:",
                 placeholder: 'mail@example.com',
+                height: 45,
               )
             ],
           ),
@@ -183,6 +197,7 @@ class LoginForm extends StatelessWidget {
               Textbox(
                 label: 'Username',
                 placeholder: 'RonBers',
+                height: 45,
               )
             ],
           ),
@@ -195,6 +210,7 @@ class LoginForm extends StatelessWidget {
               Textbox(
                 label: "Password:",
                 placeholder: 'Min of 6 Characters',
+                height: 45,
               )
             ],
           ),
@@ -207,6 +223,7 @@ class LoginForm extends StatelessWidget {
               Textbox(
                 label: "Confirm Password:",
                 placeholder: 'Min of 6 Characters',
+                height: 45,
               )
             ],
           ),
@@ -223,14 +240,247 @@ class LoginForm extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: 'RealText',
                       fontWeight: FontWeight.w100,
-                      fontSize: 23,
+                      fontSize: 20,
                       color: Colors.white),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/home');
+                },
+                width: 410,
+                height: 50,
               )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  child: Text('Have an account?'))
             ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class RegisterMobile extends StatelessWidget {
+  const RegisterMobile({Key? key}) : super(key: key);
+
+  final Color fontColor = Colors.white;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+      padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 5,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(
+                  30.0), // Rounds the corners of the image
+              child: Image.asset(
+                'assets/logos/app_logo.png',
+                width: 100,
+                height: 100,
+                fit: BoxFit
+                    .cover, // Ensures the image covers the available space
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Register",
+                  style: TextStyle(
+                    fontFamily: 'TurismoCF',
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: fontColor,
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Divider(
+                    color: fontColor,
+                    thickness: 2,
+                    indent: 50,
+                    endIndent: 50,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Textbox(
+                  fontSize_placeHolder: 16,
+                  fontSize_label: 16,
+                  placeholder: 'Ron',
+                  label: 'First Name',
+                  width: 350,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Textbox(
+                  fontSize_placeHolder: 16,
+                  fontSize_label: 16,
+                  placeholder: 'Bersabal',
+                  label: 'Last Name',
+                  width: 350,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Divider(
+                    color: fontColor,
+                    thickness: 2,
+                    indent: 50,
+                    endIndent: 50,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Textbox(
+                  fontSize_placeHolder: 16,
+                  fontSize_label: 16,
+                  label: "Email:",
+                  placeholder: 'mail@example.com',
+                  width: 350,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Textbox(
+                  fontSize_placeHolder: 16,
+                  fontSize_label: 16,
+                  label: 'Username',
+                  placeholder: 'RonBers',
+                  width: 350,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Textbox(
+                  fontSize_placeHolder: 16,
+                  fontSize_label: 16,
+                  label: "Password:",
+                  placeholder: 'Min of 6 Characters',
+                  width: 350,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Textbox(
+                  fontSize_placeHolder: 16,
+                  fontSize_label: 16,
+                  label: "Confirm Password:",
+                  placeholder: 'Min of 6 Characters',
+                  width: 350,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Divider(
+                    color: fontColor,
+                    thickness: 2,
+                    indent: 50,
+                    endIndent: 50,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Submitbutton(
+                  custom: true,
+                  child: Text(
+                    "Sign up",
+                    style: TextStyle(
+                        fontFamily: 'RealText',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 23,
+                        color: Colors.white),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/home');
+                  },
+                  width: 350,
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    child: Text(
+                      'Have an account?',
+                      style: TextStyle(fontSize: 16),
+                    ))
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

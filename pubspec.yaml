@@ -64,6 +64,24 @@ flutter:
     - assets/logos/
     - assets/img/
 
+  fonts:
+    - family: Mortend
+      fonts:
+        - asset: assets/fonts/Mortend-Bold.otf
+    - family: TurismoCF
+      fonts:
+        - asset: assets/fonts/TurismoCF-Regular.otf
+        - asset: assets/fonts/TurismoCF-Bold.otf
+          weight: 800
+        - asset: assets/fonts/TurismoCF-Light.otf
+          weight: 100
+    - family: RealText
+      fonts:
+        - asset: assets/fonts/RealTextRegular.otf
+          weight: 500
+        - asset: assets/fonts/RealTextSemilight.otf
+          weight: 300
+
 flutter_launcher_icons:
   android: true
   ios: true
@@ -85,25 +103,8 @@ flutter_launcher_icons:
     image_path: "assets/logos/app_logo.png"
     icon_size: 48
   macos:
-    generate: true
+    generate: trues
     image_path: "assets/logos/app_logo.png"
 
-  fonts:
-    - family: Mortend
-      fonts:
-        - asset: assets/fonts/Mortend-Bold.otf
-    - family: TurismoCF
-      fonts:
-        - asset: assets/fonts/TurismoCF-Regular.otf
-        - asset: assets/fonts/TurismoCF-Bold.otf
-          weight: 800
-        - asset: assets/fonts/TurismoCF-Light.otf
-          weight: 100
-    - family: RealText
-      fonts:
-        - asset: assets/fonts/RealTextRegular.otf
-          weight: 500
-        - asset: assets/fonts/RealTextSemilight.otf
-          weight: 300
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

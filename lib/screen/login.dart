@@ -10,13 +10,22 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 600) {
-        return LoginMobile();
-      } else {
-        return LoginWeb();
-      }
-    }));
+    return Scaffold(
+        body: Container(
+      decoration: BoxDecoration(
+        color: Colors.black,
+        image: DecorationImage(
+            image: AssetImage('assets/img/background_web.png'),
+            fit: BoxFit.cover),
+      ),
+      child: LayoutBuilder(builder: (context, constraints) {
+        if (constraints.maxWidth < 600) {
+          return LoginMobile();
+        } else {
+          return LoginWeb();
+        }
+      }),
+    ));
   }
 }
 

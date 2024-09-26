@@ -169,6 +169,7 @@ class LoginMobile extends StatelessWidget {
                   placeholder: 'Min of 6 Characters',
                   fontSize_label: 16,
                   fontSize_placeHolder: 16,
+                  isPassword: true,
                 )
               ],
             ),
@@ -300,7 +301,7 @@ class LoginFormWeb extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 30,
+            height: 25,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -390,6 +391,7 @@ class LoginFormWeb extends StatelessWidget {
               Textbox(
                 label: "Password:",
                 placeholder: 'Min of 6 Characters',
+                isPassword: true,
               )
             ],
           ),
@@ -409,7 +411,7 @@ class LoginFormWeb extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 40,
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -428,6 +430,19 @@ class LoginFormWeb extends StatelessWidget {
                   Navigator.pushNamed(context, '/home');
                 },
               )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
+                  child: Text(
+                    "Don't have an account?",
+                    style: TextStyle(fontSize: 13),
+                  ))
             ],
           )
         ],

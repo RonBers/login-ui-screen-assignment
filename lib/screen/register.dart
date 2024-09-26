@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cs3midlogin/widget/socialbutton.dart';
 import 'package:cs3midlogin/widget/submitbutton.dart';
 import 'package:cs3midlogin/widget/textbox.dart'; // import 'package:login_screen/widget/buttonnav.dart';
 
@@ -8,13 +7,22 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 600) {
-        return RegisterMobile();
-      } else {
-        return RegisterWeb();
-      }
-    }));
+    return Scaffold(
+        body: Container(
+      decoration: BoxDecoration(
+        color: Colors.black,
+        image: DecorationImage(
+            image: AssetImage('assets/img/background_web.png'),
+            fit: BoxFit.cover),
+      ),
+      child: LayoutBuilder(builder: (context, constraints) {
+        if (constraints.maxWidth < 600) {
+          return RegisterMobile();
+        } else {
+          return RegisterWeb();
+        }
+      }),
+    ));
   }
 }
 
@@ -102,28 +110,7 @@ class RegisterWebForm extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Socialbutton(
-                imageSrc: 'assets/logos/google.png',
-                socialSite: "Google",
-                onPressed: () {},
-              ),
-              SizedBox(
-                width: 15,
-              ),
-              Socialbutton(
-                imageSrc: 'assets/logos/facebook.png',
-                socialSite: "Facebook",
-                onPressed: () {},
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 15,
+            height: 10,
           ),
           Row(
             children: [
@@ -131,23 +118,8 @@ class RegisterWebForm extends StatelessWidget {
                 child: Divider(
                   color: fontColor, // Line color
                   thickness: 2, // Line thickness
-                  indent: 55, // Left padding
-                  endIndent: 30, // Padding before the "OR" text
-                ),
-              ),
-              Text(
-                "OR",
-                style: TextStyle(
-                    color: fontColor, // Text color
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'TurismoCF'),
-              ),
-              Expanded(
-                child: Divider(
-                  color: fontColor, // Line color
-                  thickness: 2, // Line thickness
-                  indent: 30, // Padding after the "OR" text
-                  endIndent: 55, // Right padding
+                  indent: 60, // Left padding
+                  endIndent: 60, // Padding before the "OR" text
                 ),
               ),
             ],
@@ -192,6 +164,21 @@ class RegisterWebForm extends StatelessWidget {
             height: 15,
           ),
           Row(
+            children: [
+              Expanded(
+                child: Divider(
+                  color: fontColor, // Line color
+                  thickness: 2, // Line thickness
+                  indent: 60, // Left padding
+                  endIndent: 60, // Padding before the "OR" text
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Textbox(
@@ -211,6 +198,7 @@ class RegisterWebForm extends StatelessWidget {
                 label: "Password:",
                 placeholder: 'Min of 6 Characters',
                 height: 45,
+                isPassword: true,
               )
             ],
           ),
@@ -224,11 +212,27 @@ class RegisterWebForm extends StatelessWidget {
                 label: "Confirm Password:",
                 placeholder: 'Min of 6 Characters',
                 height: 45,
+                isPassword: true,
               )
             ],
           ),
           SizedBox(
-            height: 20,
+            height: 15,
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Divider(
+                  color: fontColor, // Line color
+                  thickness: 2, // Line thickness
+                  indent: 60, // Left padding
+                  endIndent: 60, // Padding before the "OR" text
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 15,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -410,6 +414,7 @@ class RegisterMobile extends StatelessWidget {
                   label: "Password:",
                   placeholder: 'Min of 6 Characters',
                   width: 350,
+                  isPassword: true,
                 )
               ],
             ),
@@ -425,6 +430,7 @@ class RegisterMobile extends StatelessWidget {
                   label: "Confirm Password:",
                   placeholder: 'Min of 6 Characters',
                   width: 350,
+                  isPassword: true,
                 )
               ],
             ),

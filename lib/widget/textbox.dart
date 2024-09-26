@@ -8,6 +8,7 @@ class Textbox extends StatelessWidget {
   final Color backgroundColor;
   final double fontSize_placeHolder;
   final double fontSize_label;
+  final bool isPassword;
 
   const Textbox({
     Key? key,
@@ -18,10 +19,12 @@ class Textbox extends StatelessWidget {
     this.backgroundColor = Colors.transparent,
     this.fontSize_placeHolder = 12,
     this.fontSize_label = 12,
+    this.isPassword = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print(isPassword);
     return Container(
       width: width,
       color: backgroundColor,
@@ -35,9 +38,14 @@ class Textbox extends StatelessWidget {
           Container(
             height: height,
             child: TextField(
+              style: TextStyle(color: Colors.white),
+              obscureText: isPassword,
+              enableSuggestions: !isPassword,
+              autocorrect: !isPassword,
               cursorColor: Colors.white,
               decoration: InputDecoration(
                 filled: true,
+                errorStyle: TextStyle(color: Colors.red[300]),
                 fillColor: Colors.white.withOpacity(0.4),
                 border: OutlineInputBorder(),
                 focusedBorder: OutlineInputBorder(

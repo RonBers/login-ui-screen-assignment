@@ -6,21 +6,43 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-      ),
-      body: Center(
-        child: ClipRRect(
-          borderRadius:
-              BorderRadius.circular(100.0), // Rounds the corners of the image
-          child: Image.asset(
-            'assets/logos/app_logo.png',
-            width: 500,
-            height: 500,
-            fit: BoxFit.cover, // Ensures the image covers the available space
-          ),
+        appBar: AppBar(
+          title: const Text("Home"),
         ),
-      ),
-    );
+        body: Column(
+          children: [
+            Row(
+              children: [
+                Center(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100.0),
+                    child: Image.asset(
+                      'assets/logos/app_logo.png',
+                      width: 300,
+                      height: 300,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
+              children: [
+                Text("View Meals"),
+                SizedBox(
+                  width: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/food');
+                    },
+                    child: Text('Click me'))
+              ],
+            )
+          ],
+        ));
   }
 }

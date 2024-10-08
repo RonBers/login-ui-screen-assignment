@@ -1,5 +1,6 @@
 import 'package:cs3midlogin/model/Meal.dart';
 import 'package:cs3midlogin/service/mealApi.dart';
+import 'package:cs3midlogin/widget/arealist.dart';
 import 'package:cs3midlogin/widget/mealcard.dart';
 import 'package:flutter/material.dart';
 
@@ -11,14 +12,16 @@ class Food extends StatefulWidget {
 
 class _FoodState extends State<Food> {
   List<Meal> meals = [];
+  String selectedArea = '';
+
   @override
   void initState() {
     super.initState();
-    getData();
+    getData(selectedArea);
   }
 
-  void getData() async {
-    List<Meal> fetchedMeals = await Mealapi().getMeals();
+  void getData(String area) async {
+    List<Meal> fetchedMeals = await Mealapi().getMeals(area);
     setState(() {
       meals = fetchedMeals;
     });
@@ -38,6 +41,19 @@ class _FoodState extends State<Food> {
               children: [Text("Food", style: TextStyle(fontSize: 24))],
             ),
             SizedBox(height: 50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                AreaList(
+                  onAreaChanged: (String newArea) {
+                    setState(() {
+                      selectedArea = newArea;
+                    });
+                    getData(newArea);
+                  },
+                ),
+              ],
+            ),
             meals.isEmpty
                 ? Center(child: CircularProgressIndicator())
                 : ListView.builder(

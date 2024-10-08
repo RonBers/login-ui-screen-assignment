@@ -4,10 +4,10 @@ import 'package:dio/dio.dart';
 class Mealapi {
   final dio = Dio();
 
-  Future<List<Meal>> getMeals() async {
+  Future<List<Meal>> getMeals(String area) async {
     try {
       final response = await dio
-          .get('https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian');
+          .get('https://www.themealdb.com/api/json/v1/1/filter.php?a=$area');
 
       if (response.statusCode == 200 && response.data['meals'] != null) {
         List<dynamic> mealsJson = response.data['meals'];

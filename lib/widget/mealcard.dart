@@ -27,10 +27,9 @@ class Mealcard extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Text(name)],
-            )
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Wrap(children: [Text(name)])
+            ])
           ],
         ),
       ),

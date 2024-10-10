@@ -15,7 +15,9 @@ class Login extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.black,
         image: DecorationImage(
-            image: AssetImage('assets/img/background_web.png'),
+            image: MediaQuery.of(context).size.width < 600
+                ? AssetImage('assets/img/bg_phone.png')
+                : AssetImage('assets/img/background_web.png'),
             fit: BoxFit.cover),
       ),
       child: LayoutBuilder(builder: (context, constraints) {

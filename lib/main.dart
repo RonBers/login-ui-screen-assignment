@@ -1,4 +1,5 @@
 import 'package:cs3midlogin/screen/food.dart';
+import 'package:cs3midlogin/screen/userview.dart';
 import 'package:flutter/material.dart';
 import 'package:cs3midlogin/screen/greet.dart';
 import 'package:cs3midlogin/screen/home.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const Register(),
         '/home': (context) => const Home(),
         '/food': (context) => const Food(),
+        '/user': (context) => UserView()
       },
     );
   }

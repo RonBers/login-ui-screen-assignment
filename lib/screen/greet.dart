@@ -12,7 +12,14 @@ class Greet extends StatelessWidget {
       if (constraints.maxWidth < 600) {
         return GreetMobile();
       } else {
-        return UserSelectWeb();
+        return Container(
+            decoration: BoxDecoration(
+              color: Colors.black,
+              image: DecorationImage(
+                  image: AssetImage('assets/img/background_web.png'),
+                  fit: BoxFit.cover),
+            ),
+            child: UserSelectWeb());
       }
     }));
   }

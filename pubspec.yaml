@@ -38,6 +38,7 @@ dependencies:
   flutter_any_logo: ^1.1.1
   the_responsive_builder: ^1.0.6+3
   dio: ^5.7.0
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
